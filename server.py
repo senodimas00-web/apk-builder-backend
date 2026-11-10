@@ -19,8 +19,9 @@ KEYSTORE = os.path.join(OUT_DIR, "debug.keystore")
 os.makedirs(BUILD_DIR, exist_ok=True)
 os.makedirs(OUT_DIR, exist_ok=True)
 
-# Generate Keystore jika belum ada
+# Generate Keystore standar Android
 if not os.path.exists(KEYSTORE):
+    print("[*] Membuat keystore...")
     subprocess.run(["keytool", "-genkey", "-v", "-keystore", KEYSTORE, "-storepass", "android",
                     "-alias", "androiddebugkey", "-keypass", "android", "-keyalg", "RSA",
                     "-keysize", "2048", "-validity", "10000", "-dname", "CN=Android Debug,O=Android,C=US"],
